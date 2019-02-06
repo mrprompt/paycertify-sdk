@@ -1,29 +1,14 @@
 <?php
 namespace MrPrompt\PayCertify\Gateway\CreditCard;
 
-use MrPrompt\PayCertify\HttpClient;
+use MrPrompt\PayCertify\Gateway\Base;
 
 /**
  * Authorize
  * @author Thiago Paes <mrprompt@gmail.com>
  */
-class Authorize
+class Authorize extends Base
 {
-    /**
-     * @var HttpClient
-     */
-    private $client;
-
-    /**
-     * Constructor
-     * 
-     * @param HttpClient $client
-     */
-    public function __construct(HttpClient $client)
-    {
-        $this->client = $client;
-    }
-
     /**
      * AUTHORIZE AND CHARGE LATER
      * 

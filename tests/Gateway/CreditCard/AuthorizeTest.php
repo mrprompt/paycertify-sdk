@@ -50,7 +50,7 @@ class AuthTest extends Base
     /** 
      * @test 
      * @dataProvider validAuthorizationParams
-     * @covers MrPrompt\PayCertify\Gateway\CreditCard\Authorize::__construct
+     * @covers MrPrompt\PayCertify\Gateway\Base::__construct
      * @covers MrPrompt\PayCertify\Gateway\CreditCard\Authorize::process
      */
     public function process(array $params = [])

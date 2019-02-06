@@ -1,29 +1,14 @@
 <?php
 namespace MrPrompt\PayCertify\Gateway\CreditCard;
 
-use MrPrompt\PayCertify\HttpClient;
+use MrPrompt\PayCertify\Gateway\Base;
 
 /**
  * Charging
  * @author Thiago Paes <mrprompt@gmail.com>
  */
-class Charging
+class Charging extends Base
 {
-    /**
-     * @var HttpClient
-     */
-    private $client;
-
-    /**
-     * Constructor
-     * 
-     * @param HttpClient $client
-     */
-    public function __construct(HttpClient $client)
-    {
-        $this->client = $client;
-    }
-
     /**
      * CHARGE A CREDIT CARD
      * 
@@ -35,7 +20,7 @@ class Charging
      * 
      * @return Response
      */
-    public function sale(array $params = [])
+    public function process(array $params = [])
     {
         return $this->client->post('/api/transactions/sale', $params);
     }

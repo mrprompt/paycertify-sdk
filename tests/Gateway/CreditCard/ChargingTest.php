@@ -50,7 +50,7 @@ class ChargingTest extends Base
     /** 
      * @test 
      * @dataProvider validSaleParams
-     * @covers MrPrompt\PayCertify\Gateway\CreditCard\Charging::__construct
+     * @covers MrPrompt\PayCertify\Gateway\Base::__construct
      * @covers MrPrompt\PayCertify\Gateway\CreditCard\Charging::process
      */
     public function process(array $params = [])
