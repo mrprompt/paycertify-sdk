@@ -1,5 +1,5 @@
 <?php
-namespace MrPrompt\PayCertify\Tests\Gateway\CreditCard;
+namespace MrPrompt\PayCertify\Tests\Base;
 
 /**
  * Card

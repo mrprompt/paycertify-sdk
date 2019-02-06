@@ -3,17 +3,17 @@ namespace MrPrompt\PayCertify\Tests\Gateway\CreditCard;
 
 use MrPrompt\PayCertify\Tests\Base\Base;
 use MrPrompt\PayCertify\Tests\Base\Card;
-use MrPrompt\PayCertify\Gateway\CreditCard\Charging;
+use MrPrompt\PayCertify\Gateway\CreditCard\Authorize;
 
 /**
- * ChargingTest
+ * AuthTest
  * @author Thiago Paes <mrprompt@gmail.com>
  */
-class ChargingTest extends Base
+class AuthTest extends Base
 {
     use Card;
 
-    public function validSaleParams()
+    public function validAuthorizationParams()
     {
         return [
             [
@@ -49,15 +49,15 @@ class ChargingTest extends Base
     
     /** 
      * @test 
-     * @dataProvider validSaleParams
-     * @covers MrPrompt\PayCertify\Gateway\CreditCard\Charging::__construct
-     * @covers MrPrompt\PayCertify\Gateway\CreditCard\Charging::process
+     * @dataProvider validAuthorizationParams
+     * @covers MrPrompt\PayCertify\Gateway\CreditCard\Authorize::__construct
+     * @covers MrPrompt\PayCertify\Gateway\CreditCard\Authorize::process
      */
     public function process(array $params = [])
     {
-        $charging = new Charging($this->client);
+        $auth = new Authorize($this->client);
 
-        $result = $charging->process($params);
+        $result = $auth->process($params);
         
         $this->assertArrayHasKey('transaction', $result);
     }

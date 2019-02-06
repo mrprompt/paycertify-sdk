@@ -14,7 +14,7 @@ composer require paycertify/sdk
 
 - [ ] CreditCard
     - [x] Sale
-    - [ ] Authorization
+    - [x] Authorization
     - [ ] Capture
     - [ ] Void
     - [ ] Refund
