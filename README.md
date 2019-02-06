@@ -10,6 +10,30 @@ A [SDK](#) to consume [PayCertify APIs](#).
 composer require paycertify/sdk
 ```
 
+## Components
+
+- [ ] CreditCard
+    - [x] Sale
+    - [ ] Authorization
+    - [ ] Capture
+    - [ ] Void
+    - [ ] Refund
+- [ ] Recurring
+    - [ ] Create
+    - [ ] Cancel
+    - [ ] Renew
+    - [ ] Charge
+- [ ] Check
+    - [ ] Charge
+    - [ ] Refund
+- [ ] Reporting
+    - [ ] Transactions
+- [ ] Processors
+    - [ ] List
+- [ ] Tokenization
+    - [ ] Tokenize
+    - [ ] Detokenize
+
 ## Configure
 
 To start use SDK, you need obtain an [Access Key](#).
