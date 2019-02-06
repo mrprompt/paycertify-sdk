@@ -60,5 +60,6 @@ class AuthTest extends Base
         $result = $auth->process($params);
         
         $this->assertArrayHasKey('transaction', $result);
+        $this->assertArrayHasKey('events', $result['transaction']);
     }
 }

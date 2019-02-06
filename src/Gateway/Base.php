@@ -29,9 +29,4 @@ abstract class Base
     {
         return static::END_POINT;
     }
-
-    /**
-     * Process the requisition
-     */
-    abstract public function process(array $params = []);
 }

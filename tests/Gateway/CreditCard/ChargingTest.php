@@ -60,5 +60,6 @@ class ChargingTest extends Base
         $result = $charging->process($params);
         
         $this->assertArrayHasKey('transaction', $result);
+        $this->assertArrayHasKey('events', $result['transaction']);
     }
 }
