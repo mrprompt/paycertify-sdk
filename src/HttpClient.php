@@ -3,7 +3,8 @@ namespace MrPrompt\PayCertify;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\RequestException;
+use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\Exception\ClientException;
 
 /**
  * HttpClient
@@ -16,7 +17,8 @@ class HttpClient
      */
     const CLIENT_URLS = [
         'test' => 'https://qa-gateway-api.paycertify.com',
-        'production' => 'https://gateway-api.paycertify.com'
+        'production' => 'https://gateway-api.paycertify.com',
+        'local' => 'http://api.gateway',
     ];
 
     /**
@@ -35,7 +37,7 @@ class HttpClient
     {
         $this->client = $client ?: new Client();
         $this->client->baseUrl = self::CLIENT_URLS[$mode];
-        $this->headers = [
+        $this->client->headers = [
             'Content-Type' => 'application/json',
             'User-Agent' => 'Paycertify SDK HttpClient v1.0.0',
             'Cache-Control' => 'no-cache',
@@ -58,34 +60,19 @@ class HttpClient
     /**
      * Send a content by POST
      * 
-     * @return string
+     * @return ResponseInterface
      */
-    public function post(string $url, $body)
+    public function post(string $endpoint, array $body = [])
     {
-        $response = $this->client->request(
-            'POST',
-            $url,
-            [
-                'headers' => [
-                    'Content-Type' => 'application/json'
-                ],
-                'body'    => $body,
-                'verify'  => false
-            ]
-        );
+        $payload = array_merge(['body' => json_encode($body)], ['headers' => $this->getClient()->headers]);
+        $url = $this->getClient()->baseUrl . $endpoint;
+        
+        try {
+            $response = $this->getClient()->request('POST', $url, $payload);
 
-        return $response->getBody();
-    }
-
-    /**
-     * Get a content
-     * 
-     * @return string
-     */
-    public function get(string $url)
-    {
-        $response = $this->client->request('GET', $url, ['verify' => false]);
-
-        return $response->getBody();
+            return json_decode($response->getBody(), true);
+        } catch (ClientException $ex) {
+            return $ex->getMessage();
+        }
     }
 }

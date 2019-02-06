@@ -2,14 +2,14 @@
 namespace MrPrompt\PayCertify\Tests;
 
 use GuzzleHttp\ClientInterface;
-use PHPUnit\Framework\TestCase;
 use MrPrompt\PayCertify\HttpClient;
+use MrPrompt\PayCertify\Tests\Base\Base;
 
 /**
  * HttpClientTest
  * @author Thiago Paes <mrprompt@gmail.com>
  */
-class HttpClientTest extends TestCase
+class HttpClientTest extends Base
 {
     private $token;
 
@@ -19,7 +19,7 @@ class HttpClientTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->token = getenv('APPLICATION_TOKEN');
+        $this->token = getenv('SDK_TOKEN');
     }
     
     /** 
@@ -56,7 +56,7 @@ class HttpClientTest extends TestCase
      */
     public function constructorMustBeSettedByTestEnv()
     {
-        $environment = getenv('APPLICATION_ENV');
+        $environment = getenv('SDK_ENV');
         $client = new HttpClient($this->token, $environment);
 
         $this->assertEquals(

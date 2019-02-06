@@ -12,7 +12,7 @@ trait Card
         return [
             'brand' => 'Visa',
             'pan' => '4012000098765439',
-            'exp' => '12/20',
+            'exp' => '12/2025',
             'cvv' => '999',
         ];
     }
@@ -22,7 +22,7 @@ trait Card
         return [
             'brand' => 'MasterCard',
             'pan' => '5499740000000057',
-            'exp' => '12/20',
+            'exp' => '12/2025',
             'cvv' => '998',
         ];
     }
@@ -32,7 +32,7 @@ trait Card
         return [
             'brand' => 'AMEX',
             'pan' => '371449635392376',
-            'exp' => '12/20',
+            'exp' => '12/2025',
             'cvv' => '997',
         ];
     }
@@ -42,7 +42,7 @@ trait Card
         return [
             'brand' => 'Discover',
             'pan' => '6011000993026909',
-            'exp' => '12/20',
+            'exp' => '12/2025',
             'cvv' => '966',
         ];
     }
@@ -52,7 +52,7 @@ trait Card
         return [
             'brand' => 'Diners',
             'pan' => '3055155515160018',
-            'exp' => '12/20',
+            'exp' => '12/2025',
             'cvv' => '996',
         ];
     }
@@ -62,7 +62,7 @@ trait Card
         return [
             'brand' => 'JCB',
             'pan' => '3530142019945859',
-            'exp' => '12/20',
+            'exp' => '12/2025',
             'cvv' => '996',
         ];
     }

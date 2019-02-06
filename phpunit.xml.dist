@@ -12,8 +12,9 @@
          verbose="true"
          bootstrap="./vendor/autoload.php">
     <php>
-        <env name="APPLICATION_ENV" value="test"/>
-        <env name="APPLICATION_TOKEN" value="test"/>
+        <env name="SDK_ENV" value="local"/>
+        <env name="SDK_TOKEN" value="49DE1CC04C7894A2BE7F6CA9C6571F30654153EA"/>
+        <env name="SDK_PROCESSOR_ID" value="baa6ca8a-91eb-40fe-b9bf-7839ad021b12"/>
     </php>
     <testsuites>
         <testsuite name="PayCertify SDK Test Suite">
