@@ -20,5 +20,18 @@ abstract class Base
         $this->client = $client;
     }
 
-    abstract public function process();
+    /**
+     * Get the end point
+     * 
+     * @return string
+     */
+    public function getEndPoint(): string
+    {
+        return static::END_POINT;
+    }
+
+    /**
+     * Process the requisition
+     */
+    abstract public function process(array $params = []);
 }
