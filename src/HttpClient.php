@@ -27,10 +27,11 @@ class HttpClient
     /**
      * Initialize the HTTP Client used by SDK.
      * 
+     * @param string $token The access token
      * @param string $mode Set the client mode
      * @param ClientInterface $client
      */
-    public function __construct(string $mode = 'production', ClientInterface $client = null)
+    public function __construct(string $token, string $mode = 'production', ClientInterface $client = null)
     {
         $this->client = $client ?: new Client();
         $this->client->baseUrl = self::CLIENT_URLS[$mode];
@@ -39,7 +40,8 @@ class HttpClient
             'User-Agent' => 'Paycertify SDK HttpClient v1.0.0',
             'Cache-Control' => 'no-cache',
             'Connection' => 'Keep-Alive',
-            'Accept' => 'application/json'
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . $token,
         ];
     }
 

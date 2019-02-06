@@ -11,6 +11,17 @@ use MrPrompt\PayCertify\HttpClient;
  */
 class HttpClientTest extends TestCase
 {
+    private $token;
+
+    /**
+     * Bootstrap
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        $this->token = getenv('APPLICATION_TOKEN');
+    }
+    
     /** 
      * @test 
      * @coverage MrPrompt\PayCertify\HttpClient::__construct
@@ -18,7 +29,7 @@ class HttpClientTest extends TestCase
      */
     public function getClientMustBuReturnClientInterface()
     {
-        $client = new HttpClient();
+        $client = new HttpClient($this->token);
 
         $this->assertInstanceOf(ClientInterface::class, $client->getClient());
     }
@@ -30,7 +41,7 @@ class HttpClientTest extends TestCase
      */
     public function constructorSetProductionUrlByDefault()
     {
-        $client = new HttpClient();
+        $client = new HttpClient($this->token);
 
         $this->assertEquals(
             HttpClient::CLIENT_URLS['production'],
@@ -46,7 +57,7 @@ class HttpClientTest extends TestCase
     public function constructorMustBeSettedByTestEnv()
     {
         $environment = getenv('APPLICATION_ENV');
-        $client = new HttpClient($environment);
+        $client = new HttpClient($this->token, $environment);
 
         $this->assertEquals(
             HttpClient::CLIENT_URLS[ $environment ],
