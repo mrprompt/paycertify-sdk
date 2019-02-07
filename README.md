@@ -18,20 +18,20 @@ composer require mrprompt/paycertify-sdk
 
 ## Components
 
-- [ ] CreditCard
+- [x] CreditCard
     - [x] Sale
     - [x] Authorization
     - [x] Capture
     - [x] Void
     - [x] Refund
-- [ ] Recurring
-    - [ ] Create
-    - [ ] Cancel
-    - [ ] Renew
-    - [ ] Charge
-- [ ] Check
-    - [ ] Charge
-    - [ ] Refund
+- [x] Recurring
+    - [x] Create
+    - [x] Cancel
+    - [x] Renew
+    - [x] Charge
+- [x] Check
+    - [x] Charge
+    - [x] Refund
 - [ ] Reporting
     - [ ] Transactions
 - [ ] Processors
