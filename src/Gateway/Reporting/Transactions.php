@@ -38,12 +38,32 @@ class Transactions extends Base
      */
     public function process(array $params = [])
     {
-        $query = "";
+        $query = $this->prepareParams($params);
 
-        foreach ($params as $param) {
-            $query['']
+        return $this->client->get(self::END_POINT . $query);
+    }
+
+    /**
+     * Transform array with params to query string
+     * used to search endpoint.
+     * 
+     * @param array $params
+     * @return string
+     */
+    private function prepareParams(array $params = [])
+    {
+        if (count($params) === 0) {
+            return;
         }
 
-        return $this->client->get(self::END_POINT);
+        $query = [];
+
+        foreach ($params as $param => $value) {
+            $query[] = "search[$param]=$value";
+        }
+
+        $queryString = implode('&', $query);
+
+        return '?' . $queryString;
     }
 }

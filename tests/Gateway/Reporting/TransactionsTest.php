@@ -18,9 +18,28 @@ class TransactionsTest extends Base
      * @covers MrPrompt\PayCertify\Gateway\Base::__construct
      * @covers MrPrompt\PayCertify\Gateway\Reporting\Transactions::process
      */
-    public function process(array $params = [])
+    public function process()
     {
         $reporting = new Transactions($this->client);
+
+        $result = $reporting->process();
+        
+        $this->assertArrayHasKey('transactions', $result);
+    }
+
+    /** 
+     * @test 
+     * @covers MrPrompt\PayCertify\Gateway\Base::__construct
+     * @covers MrPrompt\PayCertify\Gateway\Reporting\Transactions::process
+     */
+    public function processWithParameters()
+    {
+        $reporting = new Transactions($this->client);
+
+        $params = [
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+        ];
 
         $result = $reporting->process($params);
         
