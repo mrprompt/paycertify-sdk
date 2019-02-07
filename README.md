@@ -34,11 +34,11 @@ composer require mrprompt/paycertify-sdk
     - [x] Refund
 - [x] Reporting
     - [x] Transactions
-- [ ] Processors
-    - [ ] List
-- [ ] Tokenization
-    - [ ] Tokenize
-    - [ ] Detokenize
+- [x] Processors
+    - [x] List
+- [x] Tokenization
+    - [x] Tokenize
+    - [x] Detokenize
 
 ## License
 
