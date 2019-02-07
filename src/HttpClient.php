@@ -75,4 +75,41 @@ class HttpClient
             return $ex->getMessage();
         }
     }
+
+    /**
+     * Send a DELETE requisition
+     * 
+     * @return ResponseInterface
+     */
+    public function delete(string $endpoint, array $body = [])
+    {
+        $url = $this->getClient()->baseUrl . $endpoint;
+
+        try {
+            $response = $this->getClient()->request('DELETE', $url, ['headers' => $this->getClient()->headers]);
+
+            return json_decode($response->getBody(), true);
+        } catch (ClientException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
+    /**
+     * Send a PATCH requisition
+     * 
+     * @return ResponseInterface
+     */
+    public function patch(string $endpoint, array $body = [])
+    {
+        $payload = array_merge(['body' => json_encode($body)], ['headers' => $this->getClient()->headers]);
+        $url = $this->getClient()->baseUrl . $endpoint;
+
+        try {
+            $response = $this->getClient()->request('PATCH', $url, ['headers' => $this->getClient()->headers]);
+
+            return json_decode($response->getBody(), true);
+        } catch (ClientException $ex) {
+            return $ex->getMessage();
+        }
+    }
 }
