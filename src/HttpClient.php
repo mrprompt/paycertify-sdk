@@ -77,6 +77,25 @@ class HttpClient
     }
 
     /**
+     * Get a content using GET method
+     * 
+     * @return ResponseInterface
+     */
+    public function get(string $endpoint)
+    {
+        $payload = ['headers' => $this->getClient()->headers];
+        $url = $this->getClient()->baseUrl . $endpoint;
+        
+        try {
+            $response = $this->getClient()->request('GET', $url, $payload);
+
+            return json_decode($response->getBody(), true);
+        } catch (ClientException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
+    /**
      * Send a DELETE requisition
      * 
      * @return ResponseInterface
