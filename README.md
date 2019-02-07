@@ -32,8 +32,8 @@ composer require mrprompt/paycertify-sdk
 - [x] Check
     - [x] Charge
     - [x] Refund
-- [ ] Reporting
-    - [ ] Transactions
+- [x] Reporting
+    - [x] Transactions
 - [ ] Processors
     - [ ] List
 - [ ] Tokenization
