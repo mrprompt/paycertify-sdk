@@ -2,7 +2,6 @@
 namespace MrPrompt\PayCertify\Tests\Gateway\Reporting;
 
 use MrPrompt\PayCertify\Tests\Base\Base;
-use MrPrompt\PayCertify\Tests\Base\Card;
 use MrPrompt\PayCertify\Gateway\Reporting\Transactions;
 
 /**
@@ -11,8 +10,6 @@ use MrPrompt\PayCertify\Gateway\Reporting\Transactions;
  */
 class TransactionsTest extends Base
 {
-    use Card;
-    
     /** 
      * @test 
      * @covers MrPrompt\PayCertify\Gateway\Base::__construct

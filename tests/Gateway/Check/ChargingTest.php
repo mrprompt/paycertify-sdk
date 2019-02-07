@@ -2,7 +2,6 @@
 namespace MrPrompt\PayCertify\Tests\Gateway\Check;
 
 use MrPrompt\PayCertify\Tests\Base\Base;
-use MrPrompt\PayCertify\Tests\Base\Card;
 use MrPrompt\PayCertify\Gateway\Check\Charging;
 
 /**
@@ -11,8 +10,6 @@ use MrPrompt\PayCertify\Gateway\Check\Charging;
  */
 class ChargingTest extends Base
 {
-    use Card;
-
     public function validChargesParams()
     {
         return [

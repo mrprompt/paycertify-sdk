@@ -2,7 +2,6 @@
 namespace MrPrompt\PayCertify\Tests\Gateway\Check;
 
 use MrPrompt\PayCertify\Tests\Base\Base;
-use MrPrompt\PayCertify\Tests\Base\Card;
 use MrPrompt\PayCertify\Gateway\Check\Refund;
 use MrPrompt\PayCertify\Gateway\Check\Charging;
 
@@ -12,8 +11,6 @@ use MrPrompt\PayCertify\Gateway\Check\Charging;
  */
 class RefundTest extends Base
 {
-    use Card;
-
     private function subject()
     {
         $params = [
