@@ -40,6 +40,14 @@ composer require mrprompt/paycertify-sdk
     - [x] Tokenize
     - [x] Detokenize
 
+## Testing
+
+You need export enviroment variables:
+
+- SDK_ENV="local"
+- SDK_TOKEN=""
+- SDK_PROCESSOR_ID=""
+
 ## License
 
 MIT
